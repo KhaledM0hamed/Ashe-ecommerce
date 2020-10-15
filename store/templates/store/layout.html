@@ -17,6 +17,26 @@
             href="{% static 'css/style.css' %}"
         />
         <title>G2A</title>
+        <script type="text/javascript">
+            var user = '{{request.user}}'
+
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            const csrftoken = getCookie('csrftoken');
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -48,7 +68,7 @@
                     <a href="{% url 'cart' %}"> 
                         <img id="cart-icon" src="{% static 'images/6+cart.png'%}">
                     </a>
-                    <p id="cart-total">0</p>
+                    <p id="cart-total">{{cartItems}}</p>
                 </div>
                 
             </div>
@@ -71,5 +91,6 @@
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"
         ></script>
+        <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
     </body>
 </html>
