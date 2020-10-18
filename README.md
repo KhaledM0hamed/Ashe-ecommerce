@@ -11,6 +11,8 @@ After we complete basic checkout with a logged in user, we will add in the abili
 This project will be a fully functional Gaming skins store with user and guest checkout capabilities. We will start first by setting up our templates and data structure in the first two modules, then moving on to adding user checkout flow with payment integration.
 
 After we complete basic checkout with a logged in user, we will add in the ability for users to checkout as a guest using cookies.
+
+
 ![Store View](https://i.ibb.co/j3fcxtX/store.png)
 
 
